@@ -158,11 +158,12 @@ section {
     height: 40%;
     padding: 1vh 3vw;
     vertical-align: middle;
-    font-size: 2rem;
+    font-size: 1.7rem;
     position: relative;
+    border-bottom: 1px solid var(--box-background-color1);
 }
 
-.aboutme p::after {
+.aboutme p::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -173,17 +174,27 @@ section {
     background-color: var(--box-background-color1);
 }
 
+
 .projects {
     background-color: var(--background-color3);
     color: white;
     padding: 5vh 5vw;
 }
 
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+
 .project {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     width: 28vw;
-    padding-bottom: 6vh;
+    padding-bottom: 7vh;
     background-color: var(--box-background-color1);
     color: black;
     margin: 0.5vh;
@@ -197,19 +208,22 @@ section {
 .project-head {
     display: flex;
     align-items: center;
-    height: 8vh;
     gap: 0.5vw;
     padding: 0 1vh;
 }
 
-.project-description {
+.project-description, .team {
     padding: 1vh 2vw;
-    height: 15vh;
+}
+
+.project .team {
+    background-color: #b8a265;
 }
 
 .project a {
     position: absolute;
     right: 1vh;
+    bottom: 1vh;
     display: block;
     text-decoration: none;
     text-transform: capitalize;
@@ -248,7 +262,6 @@ footer .cv a {
     text-align: center;
     color: white;
     padding: 1vh;
-    width: 8vw;
     border-radius: 10px;
     background-color: var(--background-color3);
     transition: color ease 0.5s, background-color ease 0.5s;
@@ -277,6 +290,9 @@ footer .cv a:hover {
     width: 250px;
     height: 150px;
     }
+    .aboutme p::before {
+        left: -5%;
+    }
 }
 
 @media (max-width:768px) {
@@ -291,10 +307,42 @@ footer .cv a:hover {
 
 @media (max-width:576px) {
     html {
-        font-size: 10px;
+        font-size: 8px;
+    }
+    .intro {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2vh;
     }
     .intro .photo {
-    width: 100px;
-    height: 80px;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1rem;
+    }
+    .intro .name {
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+    .intro .brief {
+        font-size: 0.7rem;
+        max-width: 90vw;
+        margin-bottom: 1rem;
+    }
+    .aboutme p::before {
+        left: -10%;
+    }
+    .projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .project {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
     }
 }
